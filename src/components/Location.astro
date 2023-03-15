@@ -1,1 +1,21 @@
-<div></div>
+---
+---
+
+<div class="text-center">
+  <button id="generateButton"> cactus</button>
+</div>
+<script>
+  import linkList from "../../public/links";
+  function getLink() {
+    var random = Math.floor(Math.random() * linkList.length);
+    var link = linkList.at(random);
+    console.log(link);
+  }
+
+  const btn: HTMLElement | null = document.getElementById("generateButton");
+  if (!!btn) {
+    btn.addEventListener("click", () => {
+      getLink();
+    });
+  }
+</script>
