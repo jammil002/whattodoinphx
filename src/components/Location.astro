@@ -1,21 +1,38 @@
 ---
 ---
 
-<div class="text-center">
-  <button id="generateButton"> cactus</button>
+<div class="text-center text-white">
+  <button id="generateButton">cactus</button>
+  <p id="link" class="hidden font-text drop-shadow-lg"></p>
+  <button id="refreshButton" class="hidden border border-red-50">refresh</button
+  >
 </div>
 <script>
   import linkList from "../../public/links";
   function getLink() {
     var random = Math.floor(Math.random() * linkList.length);
     var link = linkList.at(random);
-    console.log(link);
+    return link;
   }
 
   const btn: HTMLElement | null = document.getElementById("generateButton");
-  if (!!btn) {
+  const rbtn: HTMLElement | null = document.getElementById("refreshButton");
+  const locationLink: HTMLElement | null = document.getElementById("link");
+
+  if (!!btn && !!rbtn && !!locationLink) {
     btn.addEventListener("click", () => {
-      getLink();
+      var link = getLink();
+      btn.classList.add("hidden");
+
+      rbtn.classList.remove("hidden");
+      rbtn.classList.add("text-center");
+
+      locationLink.classList.remove("hidden");
+      locationLink.innerText = link!;
+
+      rbtn.addEventListener("click", () => {
+        alert("Clicked refresh.");
+      });
     });
   }
 </script>
