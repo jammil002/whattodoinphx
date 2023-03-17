@@ -17,7 +17,7 @@
       </pre>
     </div>
   </button>
-  <p id="link" class="hidden font-text drop-shadow-lg p-4"></p>
+  <p id="link" class="hidden font-text drop-shadow-lg p-4 justify-center"></p>
   <button
     id="refreshButton"
     class="hidden font-text border-4 rounded-md border-double border-l-white shadow-lg px-4"
@@ -47,10 +47,13 @@
       rbtn.classList.add("text-center");
 
       locationLink.classList.remove("hidden");
-      locationLink.innerText = link!;
+      locationLink.classList.add("flex");
+      locationLink.innerHTML = link!;
 
       rbtn.addEventListener("click", () => {
-        alert("Clicked refresh.");
+        var link = getLink();
+        console.log("Link clicked.");
+        locationLink.innerHTML = link!;
       });
     });
   }
