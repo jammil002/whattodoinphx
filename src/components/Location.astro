@@ -2,9 +2,9 @@
 ---
 
 <!-- Layouts -->
-<div class="text-center text-white">
+<div class="text-center text-white animate-fadein">
   <button id="generateButton">
-    <div class="-translate-x-9 drop-shadow-lg">
+    <div class="-translate-x-9 drop-shadow-lg hover:text-green-400">
       <pre>
      _  _
        | || | _
@@ -20,7 +20,7 @@
   <p id="link" class="hidden font-text drop-shadow-lg p-4 justify-center"></p>
   <button
     id="refreshButton"
-    class="hidden font-text border-4 rounded-md border-double border-l-white shadow-lg px-4"
+    class="hidden font-text border-4 rounded-md border-double border-l-white shadow-lg px-4 hover:shadow-none"
     >refresh</button
   >
 </div>
@@ -43,16 +43,18 @@
       var link = getLink();
       btn.classList.add("hidden");
 
+      rbtn.classList.add("animate-fadein");
       rbtn.classList.remove("hidden");
       rbtn.classList.add("text-center");
 
       locationLink.classList.remove("hidden");
+      locationLink.classList.add("animate-fadein");
       locationLink.classList.add("flex");
+
       locationLink.innerHTML = link!;
 
       rbtn.addEventListener("click", () => {
         var link = getLink();
-        console.log("Link clicked.");
         locationLink.innerHTML = link!;
       });
     });
